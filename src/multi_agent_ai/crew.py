@@ -40,7 +40,7 @@ class MultiAgentAi():
     @agent
     def editor(self) -> Agent:
         return Agent(
-            config=self.agents_config['editor'],  # type: ignore[index]
+            config=self.agents_config['editor'],  
             verbose=True
         )
 
@@ -71,7 +71,7 @@ class MultiAgentAi():
 
     @crew
     def crew(self) -> Crew:
-        """Creates the MultiAgentAi crew"""
+        """Creates the MultiAgentAi crew."""
         return Crew(
             agents=self.agents,
             tasks=self.tasks,
