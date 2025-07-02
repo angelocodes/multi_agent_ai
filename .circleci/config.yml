@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Install project dependencies
           command: |
-            uv pip install --system --project .
+            uv pip install --system --group dev
 
 
       - run:
