@@ -1,0 +1,33 @@
+research_task:
+  description: >
+    Find what is trending and interesting in this domain **{topic}** in the current day: **{current_date}**.
+    Gather relevant news articles and include their source links.
+  expected_output: >
+    A list of bullet points summarizing the most relevant  news stories 
+    about **{topic}**, each accompanied by the original article or blog URL.
+  agent: researcher
+
+scraping_task:
+  description: >
+    Take the list of links from the researcher and scrape the full content from each.
+    Use the scraping tool provided to you to visit each article page and extract the article text.
+  expected_output: >
+    A collection of fully detailed news articles or blog contents, 
+    each matched to its original link.
+  agent: scraper
+
+writing_task:
+  description: >
+    Read the full articles scraped by the scraper agent. For each, write a short summary (100–200 words) 
+    capturing all the important information in plain language.
+  expected_output: >
+    A friendly, concise summary of each article, between 100–200 words.
+  agent: writer
+
+editing_task:
+  description: >
+    Take the summaries written and refine the grammar, clarity, and structure.
+    Format the final result as a clean Markdown document, suitable for publishing.
+  expected_output: >
+    A polished, Markdown-formatted post for each article, ready for blog or newsletter use.
+  agent: editor
