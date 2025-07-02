@@ -20,8 +20,7 @@ jobs:
       - run:
           name: Install project dependencies
           command: |
-            uv install
-
+            uv pip install --system .
 
       - run:
           name: Run pytest
