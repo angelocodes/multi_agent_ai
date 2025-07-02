@@ -1,0 +1,36 @@
+version: 2.1
+
+executors:
+  python-executor:
+    docker:
+      - image: cimg/python:3.11
+
+jobs:
+  test:
+    executor: python-executor
+    steps:
+      - checkout
+
+      - run:
+          name: Install uv
+          command: |
+            curl -LsSf https://astral.sh/uv/install.sh | sh
+            export PATH="$HOME/.cargo/bin:$PATH"
+
+      - run:
+          name: Install project dependencies
+          command: |
+            uv pip install --system
+
+      - run:
+          name: Run pytest
+          command: |
+            pytest tests/ --junitxml=test-results/results.xml
+
+      - store_test_results:
+          path: test-results
+
+workflows:
+  test_and_deploy:
+    jobs:
+      - test
